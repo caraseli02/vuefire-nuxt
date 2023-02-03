@@ -12,9 +12,18 @@ export default defineNuxtConfig({
     },
   },
 
-  css: ['~/assets/styles.css'],
+  //css: ['~/assets/styles.css'],
 
-  modules: ['nuxt-vuefire'],
+  modules: ['nuxt-vuefire', '@nuxtjs/tailwindcss', ['@pinia/nuxt',
+    {
+      autoImports: [
+        // automatically imports `defineStore`
+        'defineStore', // import { defineStore } from 'pinia'
+        // automatically imports `defineStore` as `definePiniaStore`
+        ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+      ],
+    },
+  ],],
 
   vuefire: {
     auth: true,
