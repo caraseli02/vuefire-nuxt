@@ -1,31 +1,26 @@
 <script setup lang="ts">
-import {
-  ChartBarIcon,
-  ClockIcon,
-  HomeIcon,
-  UserCircleIcon,
-} from '@heroicons/vue/outline'
 
 const links = [
   {
-    component: HomeIcon,
+    iconName: 'material-symbols:home',
     path: '/',
     name: 'Inicio',
   },
   {
-    component: ClockIcon,
+    iconName: 'material-symbols:nest-clock-farsight-analog-outline-rounded',
     path: '/dashboard',
     name: 'Dashboard',
   },
   {
-    component: ChartBarIcon,
+    iconName: 'gridicons:stats',
     path: '/info',
     name: 'Info',
   },
   {
-    component: UserCircleIcon,
+    iconName: 'iconoir:profile-circle',
     path: '/perfil',
     name: 'Perfil',
+
   },
 ]
 </script>
@@ -48,7 +43,7 @@ const links = [
         "
         class="flex justify-center items-center h-10 lg:w-14 lg:h-14 rounded-xl bg-secondary text-primary transform shadow-xl"
       >
-        <component :is="link.component" class="w-6 h-6" />
+        <Icon :name="link.iconName" class="w-6 h-6" />
         <span v-show="$route.path === link.path" class="ml-2 md:hidden">
           {{ link.name }}
         </span>

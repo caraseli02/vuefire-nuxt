@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import { LogoutIcon, UserCircleIcon } from '@heroicons/vue/outline'
 import { useRouter } from 'vue-router'
 import { useCurrentUser, useFirebaseAuth } from 'vuefire'
 // PINIA
@@ -40,7 +39,7 @@ const closeSession = async () => {
       @click="toggleSidebar"
     >
       <PrimaryBtn id="sidebarBtn" aria-label="Open Menu">
-        <UserCircleIcon class="w-5 h-5 text-primary" />
+        <Icon name="ic:outline-menu" class="w-5 h-5 text-primary" />
       </PrimaryBtn>
     </div>
     <!-- LOGOUT, ThemeToggler Btn -->
@@ -48,7 +47,7 @@ const closeSession = async () => {
       <ThemeToggler class="mr-4" />
 
       <PrimaryBtn v-if="user" id="btnLogout" @click.prevent="closeSession">
-        <LogoutIcon class="w-5 h-5" />
+        <Icon name="material-symbols:logout" class="w-5 h-5" />
       </PrimaryBtn>
     </div>
   </header>

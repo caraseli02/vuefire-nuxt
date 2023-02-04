@@ -12,9 +12,8 @@ import {
   signInWithPhoneNumber,
   signInWithPopup,
 } from 'firebase/auth'
-import { auth } from '../helpers/firebase'
 // Firebase Errors
-import { data } from '~/assets/firebase-errors.json'
+import { data } from '@/assets/firebase-errors.json'
 // Other stores
 import { useAlertsStore } from '~/stores/AlertsStore'
 
@@ -28,6 +27,9 @@ interface IForm {
   email: string
   password: string
 }
+
+const auth = useFirebaseAuth()! // only exists on client side
+
 const errorsArr: FireAuthError = data
 
 const alertsStore = useAlertsStore()
