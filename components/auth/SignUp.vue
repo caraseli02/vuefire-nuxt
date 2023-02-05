@@ -81,7 +81,7 @@ function createUserWithEmailAndPassword(): void {
           @change="handleImageUpload"
         />
       </div> -->
-      <PrimaryBtn class="mt-4">
+      <BtnPrimary class="mt-4">
         <button id="makeCreate" type="submit" class="w-40 flex justify-center">
           Register
           <svg v-if="authStore.loading" class="animate-spin ml-4 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
@@ -90,7 +90,7 @@ function createUserWithEmailAndPassword(): void {
           </svg>
           <ArrowCircleRightIcon v-else class="h-5 w-5 ml-4" />
         </button>
-      </PrimaryBtn>
+      </BtnPrimary>
     </VeeForm>
     <!-- <div class="text-center">
       <button @click="registerWithGoogle" class="mt-4 text-secondary">

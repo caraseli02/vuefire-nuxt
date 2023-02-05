@@ -4,18 +4,12 @@ export default defineNuxtConfig({
   app: {
     head: {
       titleTemplate: 'Emoji Panel - %s',
-      link: [
-        {
-          href: 'https://cdn.jsdelivr.net/npm/water.css@2/out/water.css',
-          rel: 'stylesheet',
-        },
-      ],
     },
   },
 
   //css: ['~/assets/styles.css'],
 
-  modules: ['nuxt-vuefire', '@nuxtjs/tailwindcss', 'nuxt-icon', ['@pinia/nuxt',
+  modules: ['nuxt-vuefire', '@nuxtjs/tailwindcss', 'nuxt-icon', '@formkit/nuxt', ['@pinia/nuxt',
     {
       autoImports: [
         // automatically imports `defineStore`

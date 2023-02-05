@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import PrimaryBtn from '~/components/buttons/PrimaryBtn.vue'
 const user = useCurrentUser()
 
 const links = [
@@ -35,12 +34,12 @@ const links = [
         :to="link.path"
         class="flex flex-col"
       >
-        <PrimaryBtn class="mb-4">
+        <BtnPrimary class="mb-4">
           <span class="flex justify-center items-center w-32 text-xl">{{
             link.text
           }}</span>
           <Icon :name="link.iconName" class="w-10 h-10 ml-4" />
-        </PrimaryBtn>
+        </BtnPrimary>
       </router-link>
     </section>
   </article>

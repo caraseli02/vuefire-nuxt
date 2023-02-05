@@ -176,16 +176,16 @@ onMounted(() => {
       <div
         class="absolute ml-3 mb-8 bottom-0 inline-flex flex-col justify-center"
       >
-        <PrimaryBtn class="mb-3" data-cy="sidebarLogout" @click="closeSession">
+        <BtnPrimary class="mb-3" data-cy="sidebarLogout" @click="closeSession">
           <LogoutIcon class="text-primary mr-4 ml-2 w-6 h-6" />
           <span class="text-primary pl-3 flex justify-center items-center">
             Cerrar Session
           </span>
-        </PrimaryBtn>
-        <PrimaryBtn id="deleteUser" color="pinkOrange" @click="DeleteUser">
+        </BtnPrimary>
+        <BtnPrimary id="deleteUser" color="pinkOrange" @click="DeleteUser">
           <ExclamationIcon class="text-yellow-300 mr-4 ml-2 w-6 h-6" />
           <span class="text-primary flex justify-center items-center">Borrar la cuenta</span>
-        </PrimaryBtn>
+        </BtnPrimary>
       </div>
     </aside>
   </div>

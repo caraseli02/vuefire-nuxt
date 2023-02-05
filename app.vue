@@ -1,10 +1,11 @@
 <script setup lang="ts">
 import { useCurrentUser } from 'vuefire'
-const user = useCurrentUser()
+//const user = useCurrentUser()
+const user = {}
 </script>
 
 <template>
-  <div class="w-screen min-h-screen box-border mb-24">
+  <div class="w-screen box-border">
     <nav-header />
     <AppSidebar />
     <main class="max-w-md mx-auto px-4" :class="{ 'lg:pl-24': user }">

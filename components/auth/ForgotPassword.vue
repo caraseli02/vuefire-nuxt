@@ -53,12 +53,12 @@ const sendEmail = async () => {
           >
         </div>
         <div class="mb-4">
-          <PrimaryBtn type="submit" @click="sendEmail">
+          <BtnPrimary type="submit" @click="sendEmail">
             <transition name="fade" mode="out-in">
               <span v-if="!state.emailSending">Enviar</span>
               <span v-else>Sending...</span>
             </transition>
-          </PrimaryBtn>
+          </BtnPrimary>
         </div>
       </form>
     </article>

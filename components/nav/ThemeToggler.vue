@@ -10,7 +10,7 @@ const { next } = useCycleList(["dark", "light", "auto"], {
 </script>
 
 <template>
-  <PrimaryBtn
+  <BtnPrimary
     :color="mode === 'dark' ? 'purpleBlue' : 'redYellow'"
     @click="next()"
   >
@@ -31,7 +31,7 @@ const { next } = useCycleList(["dark", "light", "auto"], {
         class="h-5 w-5 DesktopComputerIcon"
       />
     </TransitionGroup>
-  </PrimaryBtn>
+  </BtnPrimary>
 </template>
 
 <style></style>

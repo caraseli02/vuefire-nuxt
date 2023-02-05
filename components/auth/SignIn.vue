@@ -62,13 +62,13 @@ const signInWithEmailAndPassword = async () => {
           @closePopUp="showForgotPopUp = $event"
         >
           <span class="absolute right-0 top-0 -mt-4 -mr-4">
-            <PrimaryBtn
+            <BtnPrimary
               color="redYellow"
               type="button"
               @click="showForgotPopUp = !showForgotPopUp"
             >
               <XCircleIcon class="h-6 w-6" />
-            </PrimaryBtn>
+            </BtnPrimary>
           </span>
         </forgot-password>
       </transition-group>

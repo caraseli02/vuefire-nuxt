@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@firebase/app-types': ^0.9.0
+  '@formkit/nuxt': 1.0.0-beta.14
   '@nuxtjs/tailwindcss': ^6.3.1
   '@pinia/nuxt': ^0.4.6
   '@vee-validate/i18n': ^4.7.3
@@ -17,6 +18,7 @@ specifiers:
   vuefire: ^3.0.1
 
 dependencies:
+  '@formkit/nuxt': 1.0.0-beta.14
   '@pinia/nuxt': 0.4.6
   '@vee-validate/i18n': 4.7.3
   '@vee-validate/rules': 4.7.3
@@ -911,6 +913,107 @@ packages:
 
   /@firebase/webchannel-wrapper/0.9.0:
     resolution: {integrity: sha512-BpiZLBWdLFw+qFel9p3Zs1jD6QmH7Ii4aTDu6+vx8ShdidChZUXqDhYJly4ZjSgQh54miXbBgBrk0S+jTIh/Qg==}
+    dev: false
+
+  /@formkit/core/1.0.0-beta.14:
+    resolution: {integrity: sha512-OFVuyQrVloC+Ev/fdnERe/ifuksgiGUHeBa6fXBLF2X4hQzWQ+WlEQvDC/0WgeO7E/E09PF7lVD4OwZf6dlOnw==}
+    dependencies:
+      '@formkit/utils': 1.0.0-beta.14
+    dev: false
+
+  /@formkit/dev/1.0.0-beta.14:
+    resolution: {integrity: sha512-IqIjc3tEUgOrq8S/s87b4O9QwJkr18FPnR2GsqA8ugq190Sco7fka7W3knjwAUZSRie9WJs4gobs69/7Q+XCGA==}
+    dependencies:
+      '@formkit/core': 1.0.0-beta.14
+      '@formkit/utils': 1.0.0-beta.14
+    dev: false
+
+  /@formkit/i18n/1.0.0-beta.14:
+    resolution: {integrity: sha512-R+UUhI45xewajXBebkEsTRlp9yKKnl2k9XSchDmA44zl5m/oQQxBhFyZ5tGdPNfIVKqr9jx4YhSlhEgp+BdRtA==}
+    dependencies:
+      '@formkit/core': 1.0.0-beta.14
+      '@formkit/utils': 1.0.0-beta.14
+      '@formkit/validation': 1.0.0-beta.14
+    dev: false
+
+  /@formkit/inputs/1.0.0-beta.14:
+    resolution: {integrity: sha512-VB/cqQWs87AQdO37o1BQ3tFU+d6QfopbJacoaKWhaPxHgHv8Ne9wJ+Z53HigZ4fRWdWJF2b758GwHprcc4W0Ug==}
+    dependencies:
+      '@formkit/core': 1.0.0-beta.14
+    dev: false
+
+  /@formkit/nuxt/1.0.0-beta.14:
+    resolution: {integrity: sha512-LdkJWBRU44nVwoCxP9YLM4wCBospaeP1EyDF0ZlM5yzqVP7L4qu1dcZsWxoQkuxPZUWt82adCYPfWYR7YzwzxQ==}
+    dependencies:
+      '@formkit/vue': 1.0.0-beta.14
+    transitivePeerDependencies:
+      - tailwindcss
+      - unocss
+      - vue
+      - windicss
+    dev: false
+
+  /@formkit/observer/1.0.0-beta.14:
+    resolution: {integrity: sha512-Wrhu09HVEKg+NWpsbeeIYEgRFFt3zhwL4k3JSFJItfZVEHSC/bmCdD6uMXW504m5zyVQwrD6+h5VWqxbZKaPQA==}
+    dependencies:
+      '@formkit/core': 1.0.0-beta.14
+      '@formkit/utils': 1.0.0-beta.14
+    dev: false
+
+  /@formkit/rules/1.0.0-beta.14:
+    resolution: {integrity: sha512-yL54k4/UqWGZKkDFMeGNtS2aY71x1W4o4VOCZ2bjsxub+prgIrEEt1jWvrqK3ftcxavAEKFAiIVLcFeQvzRbzQ==}
+    dependencies:
+      '@formkit/core': 1.0.0-beta.14
+      '@formkit/utils': 1.0.0-beta.14
+      '@formkit/validation': 1.0.0-beta.14
+    dev: false
+
+  /@formkit/themes/1.0.0-beta.14:
+    resolution: {integrity: sha512-qGNmi78lOaiRnt8JZL/Yl3J943k3bHepunEFQ0SsefUNZvmpuvLrplFULmSLYisfec8vE7Oh+ZbHaWjkX6TieQ==}
+    peerDependencies:
+      tailwindcss: ^3.2.0
+      unocss: ^0.31.0
+      windicss: ^3.0.0
+    peerDependenciesMeta:
+      tailwindcss:
+        optional: true
+      unocss:
+        optional: true
+      windicss:
+        optional: true
+    dependencies:
+      '@formkit/core': 1.0.0-beta.14
+    dev: false
+
+  /@formkit/utils/1.0.0-beta.14:
+    resolution: {integrity: sha512-nmvXDSr24eQ0NHbOlpdSPaojxyMY7paCj4lxhMcIriKTpTRQJdKSclB/ohtZSrAmoFVYi08B8RM5IV2O9qxwiQ==}
+    dev: false
+
+  /@formkit/validation/1.0.0-beta.14:
+    resolution: {integrity: sha512-L4V2FHzVSuAV8X5W7p6NJVSn39j7gHre/X98lKYaCmNz0d9cQNXpkxfMk0b/+h3dUJsHbrSmF2u5Mgb2P1JSLQ==}
+    dependencies:
+      '@formkit/core': 1.0.0-beta.14
+      '@formkit/observer': 1.0.0-beta.14
+    dev: false
+
+  /@formkit/vue/1.0.0-beta.14:
+    resolution: {integrity: sha512-907+hopY3FiWlCUIp9X7oYtDJ88WmjueHgp3DeYQQSHFKgeZa70QQDIcIlsgwLkQL0S7MJ9l49M7XP44kzcreg==}
+    peerDependencies:
+      vue: ^3.2.1
+    dependencies:
+      '@formkit/core': 1.0.0-beta.14
+      '@formkit/dev': 1.0.0-beta.14
+      '@formkit/i18n': 1.0.0-beta.14
+      '@formkit/inputs': 1.0.0-beta.14
+      '@formkit/observer': 1.0.0-beta.14
+      '@formkit/rules': 1.0.0-beta.14
+      '@formkit/themes': 1.0.0-beta.14
+      '@formkit/utils': 1.0.0-beta.14
+      '@formkit/validation': 1.0.0-beta.14
+    transitivePeerDependencies:
+      - tailwindcss
+      - unocss
+      - windicss
     dev: false
 
   /@google-cloud/firestore/6.4.2:

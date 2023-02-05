@@ -29,26 +29,25 @@ const closeSession = async () => {
 <template>
   <header
     :class="user ? 'justify-between' : 'justify-end'"
-    class="flex p-2 relative z-10 absolute top-0"
+    class="flex p-2 z-10 absolute top-0"
   >
     <!-- PROFILE ICON FOR OPEN/CLOSE SIDEBAR -->
     <div
-      v-if="user"
       data-cy="sidebarBtn"
       class="flex items-center"
       @click="toggleSidebar"
     >
-      <PrimaryBtn id="sidebarBtn" aria-label="Open Menu">
+      <BtnPrimary id="sidebarBtn" aria-label="Open Menu">
         <Icon name="ic:outline-menu" class="w-5 h-5 text-primary" />
-      </PrimaryBtn>
+      </BtnPrimary>
     </div>
     <!-- LOGOUT, ThemeToggler Btn -->
     <div class="flex justify-end items-center">
       <ThemeToggler class="mr-4" />
 
-      <PrimaryBtn v-if="user" id="btnLogout" @click.prevent="closeSession">
+      <BtnLoading :loading="true" v-if="user" id="btnLogout" @click.prevent="closeSession">
         <Icon name="material-symbols:logout" class="w-5 h-5" />
-      </PrimaryBtn>
+      </BtnLoading>
     </div>
   </header>
 </template>

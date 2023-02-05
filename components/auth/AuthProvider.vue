@@ -69,15 +69,15 @@ const events = {
         :key="1"
         class="flex flex-col justify-center items-center"
       >
-        <PrimaryBtn v-for="(provider, index) in loginProviderList" :key="index" class="mb-4" :color="provider.color" @click="events.onClickLogin(provider.provider, provider.name)">
+        <BtnPrimary v-for="(provider, index) in loginProviderList" :key="index" class="mb-4" :color="provider.color" @click="events.onClickLogin(provider.provider, provider.name)">
           <span
             class="relative flex justify-center w-64 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
           >
             <MailIcon class="h-5 w-5 mr-2" />
             {{ provider.name }} Mail
           </span>
-        </PrimaryBtn>
-        <PrimaryBtn
+        </BtnPrimary>
+        <BtnPrimary
           data-cy="movil-sign-in"
           color="purpleBlue"
           @click="emit('toggleMovilSignIn')"
@@ -88,7 +88,7 @@ const events = {
             <PhoneIcon class="h-5 w-5 mr-2" />
             Telefono Movil
           </span>
-        </PrimaryBtn>
+        </BtnPrimary>
       </div>
       <form v-show="showMovilSignIn" :key="2" class="w-full">
         <label
@@ -120,14 +120,14 @@ const events = {
           >
         </div>
         <div class="flex justify-between">
-          <PrimaryBtn
+          <BtnPrimary
             :disabled="phoneNumberIsInvalid"
             class="mt-4"
             :class="[{ 'cursor-not-allowed': phoneNumberIsInvalid }]"
             @click.prevent="signInWithMovil()"
           >
             Enviar
-          </PrimaryBtn>
+          </BtnPrimary>
           <XCircleIcon
             id="close-movil-sign-in"
             class="mt-4 w-10 h-10 text-red-500 cursor-pointer opacity-75 hover:opacity-100 hover:rotate-12 transition-all close-movil-sign-in"
