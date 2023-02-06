@@ -14,7 +14,6 @@ const { next } = useCycleList(["dark", "light", "auto"], {
     :color="mode === 'dark' ? 'purpleBlue' : 'redYellow'"
     @click="next()"
   >
-    <TransitionGroup name="slide-fade" mode="out-in">
       <Icon
         name="ph:moon-stars"
         key="dark"
@@ -33,8 +32,6 @@ const { next } = useCycleList(["dark", "light", "auto"], {
         v-if="mode === 'auto'"
         class="h-5 w-5 DesktopComputerIcon"
       />
-    </TransitionGroup>
   </BtnPrimary>
 </template>
 
-<style></style>

@@ -3,8 +3,9 @@ import { computed } from 'vue'
 import type { AuthProvider } from 'firebase/auth'
 import { GoogleAuthProvider, OAuthProvider } from 'firebase/auth'
 import { useRouter } from 'vue-router'
-import type { Provider } from '~/types/auth'
 import { useAuthStore } from '~/stores/AuthStore'
+
+export type Provider = 'Pasword' | 'Google' | 'Yahoo' | 'Phone'
 
 interface LoginProvider {
   name: Provider
@@ -20,16 +21,17 @@ defineProps({
     default: false,
   },
 })
+
+const auth = useFirebaseAuth()! // only exists on client side
 const emit = defineEmits(['toggleMovilSignIn'])
 const { loginWithFirebase, signInWithPhoneNumber } = useAuthStore()
 const router = useRouter()
 
 const phoneNumber = ref('')
-// const store = useStore()
 
 const phoneNumberIsInvalid = computed(() => {
   // check if phone number is valid and has 9 digits and only numbers
-  return !phoneNumber || phoneNumber.length !== 9 || !/^\d+$/.test(phoneNumber)
+  return !phoneNumber.value || phoneNumber.value.length !== 9 || !/^\d+$/.test(phoneNumber.value)
 })
 
 const loginProviderList: LoginProvider[] = [
@@ -50,19 +52,19 @@ const loginProviderList: LoginProvider[] = [
 ]
 
 const signInWithMovil = async () => {
-  await signInWithPhoneNumber(phoneNumber)
+  await signInWithPhoneNumber(phoneNumber.value, auth)
 }
 
 const events = {
   async onClickLogin(provider: AuthProvider, name: Provider) {
-    await loginWithFirebase(provider)
+    await loginWithFirebase(provider, auth)
     localStorage.setItem('provider', name)
   },
 }
 </script>
 
 <template>
-  <div class="glass flex flex-col justify-center items-center mt-4">
+  <div class="w-full flex flex-col justify-center items-center mt-4">
     <TransitionGroup name="slide-fade">
       <div
         v-show="!showMovilSignIn"
@@ -71,9 +73,9 @@ const events = {
       >
         <BtnPrimary v-for="(provider, index) in loginProviderList" :key="index" class="mb-4" :color="provider.color" @click="events.onClickLogin(provider.provider, provider.name)">
           <span
-            class="relative flex justify-center w-64 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
+            class="relative flex justify-center w-48 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
           >
-            <MailIcon class="h-5 w-5 mr-2" />
+          <Icon name="ph:mail" class="h-5 w-5 mr-2" />
             {{ provider.name }} Mail
           </span>
         </BtnPrimary>
@@ -83,10 +85,10 @@ const events = {
           @click="emit('toggleMovilSignIn')"
         >
           <span
-            class="relative flex justify-center w-64 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 items-center"
+            class="relative flex justify-center w-48 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 items-center"
           >
-            <PhoneIcon class="h-5 w-5 mr-2" />
-            Telefono Movil
+            <Icon name="ph:phone" class="h-5 w-5 mr-2" />
+            Movil
           </span>
         </BtnPrimary>
       </div>
@@ -134,7 +136,7 @@ const events = {
             @click="$emit('toggleMovilSignIn')"
           >
             Cerrar
-          </Icon  name="prime:times-circle">
+          </Icon>
         </div>
         <div id="recaptcha-container" class="mt-4" />
       </form>

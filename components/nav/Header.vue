@@ -29,7 +29,7 @@ const closeSession = async () => {
 <template>
   <header
     :class="user ? 'justify-between' : 'justify-end'"
-    class="flex p-2 z-10 absolute top-0"
+    class="flex p-2 z-10 absolute top-0 w-full"
   >
     <!-- PROFILE ICON FOR OPEN/CLOSE SIDEBAR -->
     <div

@@ -1,5 +1,5 @@
 import { defineStore } from 'pinia'
-import type { AuthProvider } from 'firebase/auth'
+import type { Auth, AuthProvider } from 'firebase/auth'
 import {
   PhoneAuthProvider,
   RecaptchaVerifier,
@@ -21,14 +21,13 @@ interface FireAuthError {
   [key: string]: string
 }
 
-interface IForm {
+export interface IForm {
   name: string
   surname: string
   email: string
   password: string
+  password_confirm: string;
 }
-
-const auth = useFirebaseAuth()! // only exists on client side
 
 const errorsArr: FireAuthError = data
 
@@ -42,7 +41,7 @@ export const useAuthStore = defineStore('AuthStore', {
     }
   },
   actions: {
-    async signInWithEmailAndPassword({ email, password }: Pick<IForm, 'email' | 'password'>) {
+    async signInWithEmailAndPassword(auth: Auth, { email, password }: Pick<IForm, 'email' | 'password'>) {
       try {
         this.loading = true
         await signInWithEmailAndPassword(auth, email, password)
@@ -54,7 +53,7 @@ export const useAuthStore = defineStore('AuthStore', {
         this.loading = false
       }
     },
-    async createUserWithEmailAndPassword({ email, password }: IForm) {
+    async createUserWithEmailAndPassword(auth: Auth, { email, password }: IForm) {
       const alertsStore = useAlertsStore()
 
       try {
@@ -68,7 +67,7 @@ export const useAuthStore = defineStore('AuthStore', {
         this.loading = false
       }
     },
-    async loginWithFirebase(provider: AuthProvider) {
+    async loginWithFirebase(provider: AuthProvider, auth: Auth) {
       const alertsStore = useAlertsStore()
       try {
         await auth.setPersistence(browserSessionPersistence)
@@ -78,7 +77,7 @@ export const useAuthStore = defineStore('AuthStore', {
         alertsStore.authError(errorsArr[err.code])
       }
     },
-    async signInWithPhoneNumber(phoneNumber: string) {
+    async signInWithPhoneNumber(phoneNumber: string, auth: Auth) {
       const appVerifier = new RecaptchaVerifier('recaptcha-container', {}, auth)
       try {
         const phoneNumberFormatted = `+34${phoneNumber}`
@@ -104,7 +103,7 @@ export const useAuthStore = defineStore('AuthStore', {
     async signOut() {
       await getAuth().signOut()
     },
-    sendEmailReset(email: string) {
+    sendEmailReset(email: string, auth: Auth) {
       sendPasswordResetEmail(auth, email)
         .then(() => {
           // Password reset email sent!
