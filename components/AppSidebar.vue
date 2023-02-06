@@ -110,7 +110,7 @@ onMounted(() => {
           for="grid-state"
         >
           Horario de Trabajo
-          <ClockIcon class="h-6 w-6 mx-2 text-blue-500" />
+          <Icon name="material-symbols:nest-clock-farsight-analog-outline-rounded" class="h-6 w-6 mx-2 text-blue-500" />
         </label>
         <div v-if="!authUser" class="relative">
           <select
@@ -153,7 +153,7 @@ onMounted(() => {
           for="grid-state"
         >
           Centro de Trabajo
-          <HomeIcon class="h-6 w-6 mx-2 text-blue-500" />
+          <Icon name="material-symbols:home" class="h-6 w-6 mx-2 text-blue-500" />
         </div>
         <div class="flex items-center p-2 border-b-2 border-gray-500 relative">
           <div>
@@ -177,13 +177,13 @@ onMounted(() => {
         class="absolute ml-3 mb-8 bottom-0 inline-flex flex-col justify-center"
       >
         <BtnPrimary class="mb-3" data-cy="sidebarLogout" @click="closeSession">
-          <LogoutIcon class="text-primary mr-4 ml-2 w-6 h-6" />
+          <Icon name="material-symbols:logout" class="text-primary mr-4 ml-2 w-6 h-6" />
           <span class="text-primary pl-3 flex justify-center items-center">
             Cerrar Session
           </span>
         </BtnPrimary>
         <BtnPrimary id="deleteUser" color="pinkOrange" @click="DeleteUser">
-          <ExclamationIcon class="text-yellow-300 mr-4 ml-2 w-6 h-6" />
+          <Icon name="bi:shield-exclamation" class="text-yellow-300 mr-4 ml-2 w-6 h-6" />
           <span class="text-primary flex justify-center items-center">Borrar la cuenta</span>
         </BtnPrimary>
       </div>

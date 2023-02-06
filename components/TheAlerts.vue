@@ -15,7 +15,7 @@ const alerts = useAlertsStore()
           <div>{{ alert.message }}</div>
           <div class="w-[20px] flex h-full justify-center items-center">
             <button class="px-5" @click="alerts.remove(alert.id)">
-              <XCircleIcon class="h-8 w-8" />
+              <Icon  name="prime:times-circle" class="h-8 w-8" />
             </button>
           </div>
         </div>

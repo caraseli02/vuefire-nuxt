@@ -1,7 +1,6 @@
 <script setup lang="ts">
 import { useCurrentUser } from 'vuefire'
-//const user = useCurrentUser()
-const user = {}
+const user = useCurrentUser()
 </script>
 
 <template>

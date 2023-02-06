@@ -128,13 +128,13 @@ const events = {
           >
             Enviar
           </BtnPrimary>
-          <XCircleIcon
+          <Icon  name="prime:times-circle"
             id="close-movil-sign-in"
             class="mt-4 w-10 h-10 text-red-500 cursor-pointer opacity-75 hover:opacity-100 hover:rotate-12 transition-all close-movil-sign-in"
             @click="$emit('toggleMovilSignIn')"
           >
             Cerrar
-          </XCircleIcon>
+          </Icon  name="prime:times-circle">
         </div>
         <div id="recaptcha-container" class="mt-4" />
       </form>

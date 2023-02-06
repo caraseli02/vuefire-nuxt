@@ -15,17 +15,20 @@ const { next } = useCycleList(["dark", "light", "auto"], {
     @click="next()"
   >
     <TransitionGroup name="slide-fade" mode="out-in">
-      <MoonIcon
+      <Icon
+        name="ph:moon-stars"
         key="dark"
         v-if="mode === 'dark'"
         class="h-5 w-5 MoonIcon"
       />
-      <SunIcon
+      <Icon
+        name="ph:sun-light"
         key="light"
         v-if="mode === 'light'"
         class="h-5 w-5 SunIcon"
       />
-      <DesktopComputerIcon
+      <Icon
+        name="material-symbols:desktop-mac-outline"
         key="auto"
         v-if="mode === 'auto'"
         class="h-5 w-5 DesktopComputerIcon"

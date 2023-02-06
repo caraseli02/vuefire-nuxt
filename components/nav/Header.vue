@@ -18,7 +18,7 @@ const toggleSidebar = () => sidebarStore.toggleSidebar()
 
 const closeSession = async () => {
   await auth?.signOut().then(() => {
-    router.push({ name: '/auth' })
+    router.push({ name: 'auth' })
   })
 }
 
@@ -37,17 +37,18 @@ const closeSession = async () => {
       class="flex items-center"
       @click="toggleSidebar"
     >
-      <BtnPrimary id="sidebarBtn" aria-label="Open Menu">
+      <BtnPrimary v-if="user" id="sidebarBtn" aria-label="Open Menu">
         <Icon name="ic:outline-menu" class="w-5 h-5 text-primary" />
       </BtnPrimary>
     </div>
-    <!-- LOGOUT, ThemeToggler Btn -->
+    <NavThemeToggler
+     />
     <div class="flex justify-end items-center">
-      <ThemeToggler class="mr-4" />
 
-      <BtnLoading :loading="true" v-if="user" id="btnLogout" @click.prevent="closeSession">
+      <BtnPrimary v-if="user" id="btnLogout" @click.prevent="closeSession">
         <Icon name="material-symbols:logout" class="w-5 h-5" />
-      </BtnLoading>
+      </BtnPrimary>
     </div>
+
   </header>
 </template>

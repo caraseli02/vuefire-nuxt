@@ -67,7 +67,7 @@ const signInWithEmailAndPassword = async () => {
               type="button"
               @click="showForgotPopUp = !showForgotPopUp"
             >
-              <XCircleIcon class="h-6 w-6" />
+              <Icon  name="prime:times-circle" class="h-6 w-6" />
             </BtnPrimary>
           </span>
         </forgot-password>
