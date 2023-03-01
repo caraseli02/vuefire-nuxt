@@ -66,75 +66,48 @@ const events = {
 <template>
   <div class="w-full flex flex-col justify-center items-center mt-4">
     <TransitionGroup name="slide-fade">
-      <div
-        v-show="!showMovilSignIn"
-        :key="1"
-        class="flex flex-col justify-center items-center"
-      >
-        <BtnPrimary v-for="(provider, index) in loginProviderList" :key="index" class="mb-4" :color="provider.color" @click="events.onClickLogin(provider.provider, provider.name)">
+      <div v-show="!showMovilSignIn" :key="1" class="flex flex-col justify-center items-center">
+        <BtnBordered v-for="(provider, index) in loginProviderList" :key="index" class="mb-4" :color="provider.color"
+          @click="events.onClickLogin(provider.provider, provider.name)">
           <span
-            class="relative flex justify-center w-48 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0"
-          >
-          <Icon name="ph:mail" class="h-5 w-5 mr-2" />
+            class="relative flex justify-center w-48 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0">
+            <Icon name="material-symbols:mail-outline" class="h-5 w-5 mr-2" />
             {{ provider.name }} Mail
           </span>
-        </BtnPrimary>
-        <BtnPrimary
-          data-cy="movil-sign-in"
-          color="purpleBlue"
-          @click="emit('toggleMovilSignIn')"
-        >
+        </BtnBordered>
+        <BtnBordered data-cy="movil-sign-in" color="purpleBlue" @click="emit('toggleMovilSignIn')">
           <span
-            class="relative flex justify-center w-48 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 items-center"
-          >
+            class="relative flex justify-center w-48 transition-all ease-in duration-75 bg-white dark:bg-gray-900 rounded-md group-hover:bg-opacity-0 items-center">
             <Icon name="ph:phone" class="h-5 w-5 mr-2" />
             Movil
+
           </span>
-        </BtnPrimary>
+        </BtnBordered>
       </div>
       <form v-show="showMovilSignIn" :key="2" class="w-full">
-        <label
-          for="email-adress-icon"
-          class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-        >Introduce los 9 dígitos:</label>
+        <label for="email-adress-icon" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Introduce
+          los 9 dígitos:</label>
         <div class="relative">
-          <div
-            class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none"
-          >
-            <PhoneIcon
-              class="h-5 w-5 mr-2"
-              :class="phoneNumberIsInvalid ? 'text-red-500' : 'text-green-500'"
-            />
+          <div class="flex absolute inset-y-0 left-0 items-center pl-3 pointer-events-none">
+            <Icon name="ph:phone" class="h-5 w-5 mr-2"
+              :class="phoneNumberIsInvalid ? 'text-red-500' : 'text-green-500'" />
           </div>
-          <input
-            id="email-adress-icon"
-            v-model="phoneNumber"
-            data-cy="phone-input"
-            type="tel"
-            :class="
-              phoneNumberIsInvalid
-                ? 'bg-red-300'
-                : 'bg-gray-50 dark:bg-gray-700'
-            "
+          <input id="email-adress-icon" v-model="phoneNumber" data-cy="phone-input" type="tel" :class="
+            phoneNumberIsInvalid
+              ? 'bg-red-300'
+              : 'bg-gray-50 dark:bg-gray-700'
+          "
             class="border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Tu teléfono"
-            pattern="[0-9]{9}"
-          >
+            placeholder="Tu teléfono" pattern="[0-9]{9}">
         </div>
         <div class="flex justify-between">
-          <BtnPrimary
-            :disabled="phoneNumberIsInvalid"
-            class="mt-4"
-            :class="[{ 'cursor-not-allowed': phoneNumberIsInvalid }]"
-            @click.prevent="signInWithMovil()"
-          >
+          <BtnBordered :disabled="phoneNumberIsInvalid" class="mt-4"
+            :class="[{ 'cursor-not-allowed': phoneNumberIsInvalid }]" @click.prevent="signInWithMovil()">
             Enviar
-          </BtnPrimary>
-          <Icon  name="prime:times-circle"
-            id="close-movil-sign-in"
+          </BtnBordered>
+          <Icon name="prime:times-circle" id="close-movil-sign-in"
             class="mt-4 w-10 h-10 text-red-500 cursor-pointer opacity-75 hover:opacity-100 hover:rotate-12 transition-all close-movil-sign-in"
-            @click="$emit('toggleMovilSignIn')"
-          >
+            @click="$emit('toggleMovilSignIn')">
             Cerrar
           </Icon>
         </div>

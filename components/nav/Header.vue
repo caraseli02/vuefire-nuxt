@@ -16,12 +16,6 @@ const user = useCurrentUser()
 // access an action/mutations from the store
 const toggleSidebar = () => sidebarStore.toggleSidebar()
 
-const closeSession = async () => {
-  await auth?.signOut().then(() => {
-    router.push({ name: 'auth' })
-  })
-}
-
 // store.dispatch("attendance/fetchAllAttends")
 // store.dispatch("users/fetchAllUsers");
 </script>
@@ -41,11 +35,12 @@ const closeSession = async () => {
         <Icon name="ic:outline-menu" class="w-5 h-5 text-primary" />
       </BtnPrimary>
     </div>
+    <NavLang />
     <NavThemeToggler
      />
     <div class="flex justify-end items-center">
 
-      <BtnPrimary v-if="user" id="btnLogout" @click.prevent="closeSession">
+      <BtnPrimary v-if="user" id="btnLogout" @click.prevent=" auth?.signOut()">
         <Icon name="material-symbols:logout" class="w-5 h-5" />
       </BtnPrimary>
     </div>

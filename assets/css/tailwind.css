@@ -3,6 +3,44 @@
 @tailwind utilities;
 
 @layer components {
+  :root {
+  @apply light;
+}
+
+.dark {
+  --color-bg-primary: #0f172a;
+  --color-bg-content: #334155;
+  --color-bg-secondary: #1e293b;
+  --color-text-primary: #94a3b8;
+  --color-text-secondary: #93a4b8;
+  --color-text-accent: #08aecf;
+}
+
+.light {
+  --color-bg-primary: #e0e6e6;
+  --color-bg-content: #f5fafa;
+  --color-bg-secondary: #17e9e1;
+  --color-text-primary: #171718;
+  --color-text-secondary: #3333af;
+  --color-text-accent: #1d4ed8;
+}
+
+  .gradient-border-2 {
+    border: 2px solid transparent;
+  } 
+
+  .border-gradient-br-gradient-gray-900 {
+      background: linear-gradient(90deg,#18181b,#18181b),linear-gradient(to bottom right,#00dc82,#36e4da,#16a79e);
+      background-clip: padding-box,border-box;
+      background-origin: padding-box,border-box;
+  }
+
+  .border-gradient-br-gradient-black {
+    background: linear-gradient(90deg,#0c0c0d,#0c0c0d),linear-gradient(to bottom right,#00dc82,#36e4da,#16a79e);
+    background-clip: padding-box,border-box;
+    background-origin: padding-box,border-box;
+  }
+
   .glass {
     @apply p-3 md:p-6 rounded-lg border-gray-900;
   }
@@ -78,26 +116,4 @@
     border: 2px solid rgba(25, 0, 247, 0.2);
     background: rgba(25, 0, 247, 0.5);
   }
-}
-
-:root {
-  @apply light;
-}
-
-.dark {
-  --color-bg-primary: #0f172a;
-  --color-bg-content: #334155;
-  --color-bg-secondary: #1e293b;
-  --color-text-primary: #94a3b8;
-  --color-text-secondary: #93a4b8;
-  --color-text-accent: #08aecf;
-}
-
-.light {
-  --color-bg-primary: #e0e6e6;
-  --color-bg-content: #f5fafa;
-  --color-bg-secondary: #17e9e1;
-  --color-text-primary: #171718;
-  --color-text-secondary: #3333af;
-  --color-text-accent: #1d4ed8;
 }

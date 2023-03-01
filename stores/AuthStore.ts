@@ -47,6 +47,8 @@ export const useAuthStore = defineStore('AuthStore', {
         await signInWithEmailAndPassword(auth, email, password)
       }
       catch (err: any) {
+        console.log(err.message);
+
         alertsStore.authError(errorsArr[err.code])
       }
       finally {
@@ -54,7 +56,6 @@ export const useAuthStore = defineStore('AuthStore', {
       }
     },
     async createUserWithEmailAndPassword(auth: Auth, { email, password }: IForm) {
-      const alertsStore = useAlertsStore()
 
       try {
         this.loading = true
@@ -68,7 +69,6 @@ export const useAuthStore = defineStore('AuthStore', {
       }
     },
     async loginWithFirebase(provider: AuthProvider, auth: Auth) {
-      const alertsStore = useAlertsStore()
       try {
         await auth.setPersistence(browserSessionPersistence)
         return await signInWithPopup(auth, provider)

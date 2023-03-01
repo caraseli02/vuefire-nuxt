@@ -1,20 +1,34 @@
 <script setup lang="ts">
-import { useCurrentUser } from 'vuefire'
 const user = useCurrentUser()
+const router = useRouter()
+const route = useRoute()
+
+// we don't need this watcher on server
+onMounted(() => {
+  watch(user, (user, prevUser) => {
+    if (prevUser && !user) {
+      // user logged out
+      router.push('/auth')
+    } else if (user) {
+      if (typeof route.query.redirect === 'string') {
+        return router.push(route.query.redirect)
+      }
+      router.push('/')
+    }
+  })
+})
 </script>
 
 <template>
   <div class="w-screen box-border">
     <nav-header />
     <AppSidebar />
-    <main class="max-w-md mx-auto px-4" :class="{ 'lg:pl-24': user }">
+    <main class="max-w-md mx-auto px-4 pt-12" :class="{ 'lg:pl-24': user }">
       <NuxtPage />
     </main>
     <!-- <Footer /> -->
-    <section
-      v-if="user"
-      class="glass-blue fixed bottom-0 w-full rounded-none rounded-t-lg lg:w-20 lg:h-full lg:rounded-r-lg lg:rounded-t-none"
-    >
+    <section v-if="user"
+      class="glass-blue fixed bottom-0 w-full rounded-none rounded-t-lg lg:w-20 lg:h-full lg:rounded-r-lg lg:rounded-t-none">
       <nav-body />
     </section>
     <TheAlerts />
@@ -30,6 +44,8 @@ const user = useCurrentUser()
 
 html {
   background: radial-gradient(circle at top left, #dad4cd 0%, #00c6fb 20%, #005bea 100%);
+  width: 100%;
+  height: 100%;
 }
 
 .dark {

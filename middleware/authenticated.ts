@@ -1,13 +1,6 @@
-
-export default defineNuxtRouteMiddleware(async (to, from) => {
+export default defineNuxtRouteMiddleware(async (to) => {
   const user = await getCurrentUser()
-  console.log(user);
-
-  if (
-    user.value
-  ) {
-    return;
+  if (!user) {
+    return navigateTo({ path: '/auth', query: { redirect: to.fullPath } })
   }
-
-  return navigateTo(`/auth?redirectTo=${to.path}`);
 })

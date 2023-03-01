@@ -9,16 +9,18 @@ export default defineNuxtConfig({
 
   //css: ['~/assets/styles.css'],
 
-  modules: ['nuxt-vuefire', '@nuxtjs/tailwindcss', 'nuxt-icon', '@formkit/nuxt', ['@pinia/nuxt',
-    {
-      autoImports: [
-        // automatically imports `defineStore`
-        'defineStore', // import { defineStore } from 'pinia'
-        // automatically imports `defineStore` as `definePiniaStore`
-        ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
-      ],
-    },
-  ],],
+  modules: ['nuxt-headlessui', '@nuxtjs/i18n', 'nuxt-vuefire', '@nuxtjs/tailwindcss', 'nuxt-icon', '@formkit/nuxt',
+    ['@pinia/nuxt',
+      {
+        autoImports: [
+          // automatically imports `defineStore`
+          'defineStore', // import { defineStore } from 'pinia'
+          // automatically imports `defineStore` as `definePiniaStore`
+          ['defineStore', 'definePiniaStore'], // import { defineStore as definePiniaStore } from 'pinia'
+        ],
+      },
+    ],
+  ],
 
   vuefire: {
     auth: true,
@@ -31,8 +33,23 @@ export default defineNuxtConfig({
       appId: process.env.FIREBASE_APP_ID,
     },
   },
-
-  // TODO: maybe not needed for the demo
+  i18n: {
+    // add `vueI18n` option to `@nuxtjs/i18n` module options
+    vueI18n: {
+      legacy: false,
+      locale: 'en',
+      messages: {
+        en: {
+          enter: 'Log in',
+          signUp: 'Sign up'
+        },
+        es: {
+          enter: 'Iniciar sesión',
+          signUp: 'Regístrate'
+        }
+      }
+    }
+  },
   typescript: {
     shim: false,
   },

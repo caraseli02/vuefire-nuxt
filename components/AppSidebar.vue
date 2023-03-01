@@ -172,7 +172,6 @@ onMounted(() => {
           </div>
         </div>
       </div>
-      <legalLinks class="mt-4 my-2" />
       <div
         class="absolute ml-3 mb-8 bottom-0 inline-flex flex-col justify-center"
       >
