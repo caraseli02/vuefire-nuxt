@@ -1,9 +1,8 @@
-import { firebaseApp } from './helpers/firebase';
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   app: {
     head: {
-      titleTemplate: 'Emoji Panel - %s',
+      titleTemplate: 'NuxtFire',
     },
   },
 
@@ -41,11 +40,22 @@ export default defineNuxtConfig({
       messages: {
         en: {
           enter: 'Log in',
-          signUp: 'Sign up'
+          signUp: 'Sign up',
+          email: 'Email',
+          password: 'Password',
+          confirmPassword: 'Confirm Password',
+          login: 'Login',
+          register: 'Register',
+          forgotPassword: 'Forgot Password',
         },
         es: {
           enter: 'Iniciar sesión',
-          signUp: 'Regístrate'
+          signUp: 'Regístrate',
+          email: 'Correo electrónico',
+          password: 'Contraseña',
+          confirmPassword: 'Confirmar contraseña',
+          login: 'Iniciar sesión',
+          register: 'Registrarse',
         }
       }
     }

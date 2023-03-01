@@ -3,7 +3,7 @@
     <div class="relative mr-4">
       <ListboxButton class="w-32">
         <BtnPrimary>
-          <Icon name="material-symbols:translate" class="h-5 w-5 text-primary" />
+          <Icon name="material-symbols:translate" class="h-5 w-5" />
         </BtnPrimary>
       </ListboxButton>
 

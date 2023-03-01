@@ -36,17 +36,17 @@ const showMovilSignIn = ref(false)
       @submit="submitHandler" :actions="false">
       <FormKit type="text" name="name" label="Your name" prefix-icon="name" placeholder="Jane Doe"
         help="What do people call you?" validation="required" class="test" v-if="registrationMode" />
-      <FormKit type="text" name="email" prefix-icon="email" label="Your email" placeholder="jane@example.com"
+      <FormKit type="text" name="email" prefix-icon="email" :label="$t('email')" placeholder="jane@example.com"
         :help="registrationMode ? 'What email should we use?' : ''" validation="required|email" />
-      <FormKit type="password" name="password" label="Password" prefix-icon="password"
+      <FormKit type="password" name="password" :label="$t('password')" prefix-icon="password"
         validation="required|length:6|matches:/[^a-zA-Z]/" :validation-messages="{
           matches: 'Please include at least one symbol',
-        }" placeholder="Your password" :help="registrationMode ? 'Choose a password?' : ''" />
-      <FormKit type="password" name="password_confirm" label="Confirm password" prefix-icon="password"
-        placeholder="Confirm password" validation="required|confirm" help="Confirm your password"
+        }" :placeholder="$t('password')" :help="registrationMode ? 'Choose a password?' : ''" />
+      <FormKit type="password" name="password_confirm" :label="$t('confirmPassword')" prefix-icon="password"
+        :placeholder="$t('confirmPassword')" validation="required|confirm" help="Confirm your password"
         v-if="registrationMode" />
 
-      <FormKit type="submit" :label="registrationMode ? 'Create accaunt' : 'Enter'" />
+      <FormKit type="submit" :label="registrationMode ? $t('signUp') : $t('enter')" />
     </FormKit>
     <AuthProvider :show-movil-sign-in="showMovilSignIn" @toggleMovilSignIn="showMovilSignIn = !showMovilSignIn" />
   </div>
