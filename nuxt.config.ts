@@ -47,6 +47,16 @@ export default defineNuxtConfig({
           login: 'Login',
           register: 'Register',
           forgotPassword: 'Forgot Password',
+          yourName: 'Your Name',
+          yourEmail: 'Your Email',
+          yourPassword: 'Your Password',
+          yourConfirmPassword: 'Your Confirm Password',
+          nameHelp: 'What do people call you?',
+          emailHelp: 'What is your email address?',
+          passwordHelp: 'What is your password?',
+          confirmPasswordHelp: 'What is your confirm password?',
+          loginHelp: 'What is your login?',
+          registerHelp: 'What is your register?'
         },
         es: {
           enter: 'Iniciar sesión',
@@ -56,6 +66,15 @@ export default defineNuxtConfig({
           confirmPassword: 'Confirmar contraseña',
           login: 'Iniciar sesión',
           register: 'Registrarse',
+          forgotPassword: '¿Olvidaste tu contraseña?',
+          yourName: 'Tu nombre',
+          yourEmail: 'Tu correo electrónico',
+          yourPassword: 'Tu contraseña',
+          yourConfirmPassword: 'Tu confirmación de contraseña',
+          nameHelp: '¿Cuál es tu nombre?',
+          emailHelp: '¿Cuál es tu correo electrónico?',
+          passwordHelp: '¿Cuál es tu contraseña?',
+          confirmPasswordHelp: '¿Cuál es tu confirmación de contraseña?',
         }
       }
     }

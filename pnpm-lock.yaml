@@ -11,6 +11,7 @@ specifiers:
   '@vueuse/core': ^9.11.0
   firebase: ^9.15.0
   firebase-admin: ^11.4.1
+  gsap: ^3.11.4
   nuxt: ^3.0.0
   nuxt-headlessui: ^1.1.1
   nuxt-icon: ^0.2.10
@@ -27,6 +28,7 @@ dependencies:
   '@vee-validate/rules': 4.7.3
   '@vueuse/core': 9.11.0
   firebase: 9.15.0
+  gsap: 3.11.4
   nuxt: 3.0.0
   nuxt-vuefire: 0.1.5_gl5bzj5n2nzxp2xhu7qtoqbzcy
   pinia: 2.0.30
@@ -4047,6 +4049,10 @@ packages:
 
   /graceful-fs/4.2.10:
     resolution: {integrity: sha512-9ByhssR2fPVsNZj478qUUbKfmL0+t5BDVyjShtyZZLiK7ZDAArFFfopyOTj0M05wE2tJPisA4iTnnXl2YoPvOA==}
+
+  /gsap/3.11.4:
+    resolution: {integrity: sha512-McHhEguHyExMMnjqKA8G+7TvxmlKQGMbjgwAilnFe1e4id7V/tFveRQ2YMZhTYu0oxHGWvbPltdVYQOu3z1SCA==}
+    dev: false
 
   /gtoken/6.1.2:
     resolution: {integrity: sha512-4ccGpzz7YAr7lxrT2neugmXQ3hP9ho2gcaityLVkiUecAiwiy60Ii8gRbZeOsXV19fYaRjgBSshs8kXw+NKCPQ==}

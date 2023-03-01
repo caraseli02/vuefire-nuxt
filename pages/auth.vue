@@ -3,6 +3,24 @@ import { ref } from 'vue'
 // PINIA import
 import { useAuthStore } from '~/stores/AuthStore'
 import type { IForm } from '~/stores/AuthStore'
+//GSAP
+import { gsap } from 'gsap'
+const tl = gsap.timeline();
+
+const useGSAP = () => {
+  tl.to(".form", { display:"block", duration: 0.5, ease: "power3.inOut" });
+  tl.from(".formkit-outer", { opacity: 0, y: 30, stagger: 0.3 });
+  tl.from(".authproviders", { opacity: 0, scale: 0.5 });
+ }
+
+onMounted(() => {
+  useGSAP()
+})
+
+const openSignUp = () => {
+  registrationMode.value = !registrationMode.value
+  tl.from(".form", { opacity: '0', x: 50, duration: 0.8, ease: "power3.inOut" });
+}
 
 // PINIA Stores
 const { signInWithEmailAndPassword, createUserWithEmailAndPassword, } = useAuthStore()
@@ -25,30 +43,29 @@ const showMovilSignIn = ref(false)
 </script>
 
 <template>
-  <div class="form h-screen flex flex-col justify-start items-start mt-24">
+  <div class="form hidden h-screen  flex-col justify-start items-start mt-24">
     <div class="w-full flex justify-between items-center mb-4 ">
       <h1 class="inline-block text-2xl sm:text-3xl font-extrabold text-primary tracking-tight dark:text-slate-200">
         {{ registrationMode ? $t('signUp') : $t('enter') }}</h1>
-      <button class="text-accent underlin underline-offset-4" @click="registrationMode = !registrationMode">Go to
+      <button class="text-accent underlin underline-offset-4" @click="openSignUp">Go to
         {{ registrationMode ? $t('enter') : $t('signUp')  }}</button>
     </div>
     <FormKit type="form" id="registration-example" :form-class="submitted ? 'hide' : 'show'" submit-label="Register"
       @submit="submitHandler" :actions="false">
-      <FormKit type="text" name="name" label="Your name" prefix-icon="name" placeholder="Jane Doe"
-        help="What do people call you?" validation="required" class="test" v-if="registrationMode" />
-      <FormKit type="text" name="email" prefix-icon="email" :label="$t('email')" placeholder="jane@example.com"
-        :help="registrationMode ? 'What email should we use?' : ''" validation="required|email" />
-      <FormKit type="password" name="password" :label="$t('password')" prefix-icon="password"
+      <FormKit type="text" name="name" :label="$t('yourName')" prefix-icon="name" placeholder="Jane Doe"
+        :help="$t('nameHelp')" validation="required" class="test" v-if="registrationMode" />
+      <FormKit type="text" name="email" prefix-icon="email" :label="$t('yourEmail')" placeholder="jane@example.com"
+        :help="registrationMode ? $t('emailHelp') : ''" validation="required|email" />
+      <FormKit type="password" name="password" :label="$t('yourPassword')" prefix-icon="password"
         validation="required|length:6|matches:/[^a-zA-Z]/" :validation-messages="{
           matches: 'Please include at least one symbol',
-        }" :placeholder="$t('password')" :help="registrationMode ? 'Choose a password?' : ''" />
+        }" :placeholder="$t('password')" :help="registrationMode ? $t('passwordHelp') : ''" />
       <FormKit type="password" name="password_confirm" :label="$t('confirmPassword')" prefix-icon="password"
-        :placeholder="$t('confirmPassword')" validation="required|confirm" help="Confirm your password"
+        :placeholder="$t('confirmPassword')" validation="required|confirm" :help="$t('confirmPasswordHelp')"
         v-if="registrationMode" />
-
-      <FormKit type="submit" :label="registrationMode ? $t('signUp') : $t('enter')" />
+      <FormKit outer-class="primaryBtn w-full flex justify-center" type="submit" :label="registrationMode ? $t('signUp') : $t('enter')" />
     </FormKit>
-    <AuthProvider :show-movil-sign-in="showMovilSignIn" @toggleMovilSignIn="showMovilSignIn = !showMovilSignIn" />
+    <AuthProvider class="authproviders" :show-movil-sign-in="showMovilSignIn" @toggleMovilSignIn="showMovilSignIn = !showMovilSignIn" />
   </div>
 </template>
 
@@ -74,7 +91,8 @@ const showMovilSignIn = ref(false)
 }
 
 .form :deep(button.formkit-input) {
-  @apply btn-form
+  background-color: transparent !important;
+  padding: 2px !important;
 }
 
 .form :deep(.formkit-messages) {
