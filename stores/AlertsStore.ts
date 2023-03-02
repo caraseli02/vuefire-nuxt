@@ -53,7 +53,7 @@ export const useAlertsStore = defineStore('AlertsStore', {
       this.notify(message, 'error', options)
     },
 
-    authError(message: string, options?: AlertOptions) {
+    authError(message: string, options?: AlertOptions) {      
       this.notify(message, 'warning', options)
     },
 

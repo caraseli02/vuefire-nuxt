@@ -1,4 +1,3 @@
-// src/stores/AuthStore.js (Pinia)
 import { defineStore } from 'pinia'
 
 export const useSidebarStore = defineStore('SidebarStore', {

@@ -47,7 +47,7 @@ export const useAuthStore = defineStore('AuthStore', {
         await signInWithEmailAndPassword(auth, email, password)
       }
       catch (err: any) {
-        console.log(err.message);
+        console.log(err);
 
         alertsStore.authError(errorsArr[err.code])
       }
